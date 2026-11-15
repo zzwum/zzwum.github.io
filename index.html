@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zhenwei Zhang 张振威 · Homepage</title>
+<meta name="description" content="Zhenwei Zhang (张振威), PhD candidate at the University of Macau. Urban microclimate, building energy and climate-adaptive power distribution systems.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Inter:wght@400;500;600&family=Noto+Serif+SC:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f7f6f2; --card:#ffffff; --ink:#1d2327; --muted:#5e676d; --line:#e4e1d8;
+    --accent:#0e5a6b; --accent-soft:#e3eff1; --heat:#c4541f; --heat-soft:#fbeadf;
+    --gold:#a3770f; --gold-soft:#f6eed6;
+    --serif:"Source Serif 4","Noto Serif SC",Georgia,serif;
+    --sans:Inter,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{ --bg:#121618; --card:#1a1f22; --ink:#e7eaeb; --muted:#9aa4a9; --line:#2a3135;
+      --accent:#5fb3c4; --accent-soft:#18323a; --heat:#ec8a5a; --heat-soft:#3a2418;
+      --gold:#d9b25a; --gold-soft:#332a14; }
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth; scroll-padding-top:72px}
+  body{margin:0; background:var(--bg); color:var(--ink); font:16px/1.65 var(--sans); -webkit-font-smoothing:antialiased}
+  a{color:var(--accent); text-decoration:none}
+  a:hover{text-decoration:underline}
+
+  /* top nav */
+  header.nav{position:sticky; top:0; z-index:10; background:color-mix(in srgb,var(--bg) 88%,transparent);
+    backdrop-filter:blur(8px); border-bottom:1px solid var(--line)}
+  .nav-inner{max-width:1180px; margin:0 auto; padding:0 24px; height:60px; display:flex; align-items:center; gap:28px}
+  .brand{font:600 19px var(--serif); color:var(--ink); white-space:nowrap}
+  .brand span{color:var(--muted); font-weight:500; margin-left:6px}
+  .nav ul{list-style:none; display:flex; gap:22px; margin:0 0 0 auto; padding:0; overflow-x:auto; min-width:0; scrollbar-width:none}
+  .nav ul a{color:var(--muted); font-size:14.5px; font-weight:500; white-space:nowrap}
+  .nav ul a:hover,.nav ul a.active{color:var(--ink); text-decoration:none}
+
+  /* climate stripe */
+  .stripe{height:4px; background:linear-gradient(90deg,#08306b,#2171b5,#6baed6,#c6dbef,#fee0d2,#fc9272,#de2d26,#a50f15)}
+
+  .wrap{max-width:1180px; margin:0 auto; padding:40px 24px 80px; display:grid; grid-template-columns:270px minmax(0,1fr); gap:56px}
+
+  /* sidebar */
+  aside{position:sticky; top:96px; align-self:start}
+  .avatar{width:180px; height:208px; border-radius:14px; object-fit:cover; object-position:center 20%;
+    display:block; box-shadow:0 1px 0 var(--line),0 10px 30px -12px rgba(0,0,0,.25)}
+  aside h1{font:700 26px/1.2 var(--serif); margin:22px 0 2px}
+  aside .cn{font:500 18px var(--serif); color:var(--muted)}
+  aside .role{margin:14px 0 0; font-size:14.5px; color:var(--muted); line-height:1.55}
+  aside .role b{color:var(--ink); font-weight:600}
+  .links{list-style:none; padding:0; margin:20px 0 0; display:grid; gap:9px; font-size:14.5px}
+  .links li{display:flex; align-items:center; gap:10px; color:var(--muted)}
+  .links svg{width:17px; height:17px; flex:none; fill:none; stroke:currentColor; stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round}
+  .links a{color:var(--ink)}
+  .stats{display:flex; gap:10px; margin-top:22px}
+  .stat{flex:1; background:var(--card); border:1px solid var(--line); border-radius:10px; padding:10px 12px}
+  .stat b{display:block; font:700 22px var(--serif); color:var(--accent)}
+  .stat span{font-size:12px; white-space:nowrap; color:var(--muted)}
+
+  /* main */
+  main section{margin-bottom:60px}
+  h2{font:700 25px var(--serif); margin:0 0 18px; display:flex; align-items:center; gap:12px}
+  h2::after{content:""; flex:1; height:1px; background:var(--line)}
+  h3{font:600 17px var(--serif); margin:26px 0 10px}
+  p{margin:0 0 14px}
+  .lead{font-size:17px}
+  .cn-bio{font-family:var(--serif); color:var(--muted); border-left:3px solid var(--accent-soft); padding-left:16px; margin-top:18px; font-size:15.5px}
+
+  .interests{display:grid; grid-template-columns:repeat(2,1fr); gap:14px; margin-top:22px}
+  .int{background:var(--card); border:1px solid var(--line); border-radius:12px; padding:16px 18px}
+  .int .k{font:600 15.5px var(--serif); display:flex; gap:10px; align-items:center}
+  .int .dot{width:10px; height:10px; border-radius:50%}
+  .int p{margin:6px 0 0; font-size:14px; color:var(--muted); line-height:1.55}
+
+  /* news */
+  .news{list-style:none; padding:0; margin:0}
+  .news li{display:grid; grid-template-columns:96px 1fr; gap:14px; padding:10px 0; border-bottom:1px dashed var(--line); font-size:15px}
+  .news li:last-child{border-bottom:0}
+  .news time{font:600 13px var(--sans); color:var(--accent); padding-top:2px; font-variant-numeric:tabular-nums}
+
+  /* timeline */
+  .tl{list-style:none; padding:0; margin:0; position:relative}
+  .tl li{position:relative; padding:0 0 20px 26px}
+  .tl li::before{content:""; position:absolute; left:5px; top:9px; bottom:-9px; width:1px; background:var(--line)}
+  .tl li:last-child::before{display:none}
+  .tl li::after{content:""; position:absolute; left:0; top:6px; width:11px; height:11px; border-radius:50%; background:var(--card); border:2px solid var(--accent)}
+  .tl .t{display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap}
+  .tl .t b{font-weight:600}
+  .tl .when{color:var(--muted); font-size:14px; font-variant-numeric:tabular-nums}
+  .tl .sub{color:var(--muted); font-size:14.5px}
+
+  /* publications */
+  .tabs{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:18px}
+  .tabs button{font:500 13.5px var(--sans); border:1px solid var(--line); background:var(--card); color:var(--muted);
+    padding:6px 14px; border-radius:999px; cursor:pointer}
+  .tabs button.on{background:var(--accent); border-color:var(--accent); color:#fff}
+  @media (prefers-color-scheme:dark){ .tabs button.on{color:#0b1416} }
+  .pubs{list-style:none; padding:0; margin:0; counter-reset:p}
+  .pub{display:grid; grid-template-columns:34px 1fr; gap:6px; padding:14px 0; border-bottom:1px solid var(--line)}
+  .pub::before{counter-increment:p; content:"[" counter(p) "]"; color:var(--muted); font-size:13.5px; padding-top:2px; font-variant-numeric:tabular-nums}
+  .pub .ti{font:600 16px/1.45 var(--serif)}
+  .pub .au{font-size:14.5px; color:var(--muted); margin-top:3px}
+  .pub .au b{color:var(--ink); font-weight:600; text-decoration:underline; text-decoration-color:var(--accent); text-underline-offset:3px}
+  .pub .ve{font-size:14.5px; margin-top:2px}
+  .pub .ve i{color:var(--ink)}
+  .badge{display:inline-block; font:600 11.5px var(--sans); letter-spacing:.02em; padding:2px 8px; border-radius:6px; margin:6px 6px 0 0; vertical-align:middle}
+  .b-esi{background:var(--heat-soft); color:var(--heat)}
+  .b-award{background:var(--gold-soft); color:var(--gold)}
+  .b-cell{background:var(--accent-soft); color:var(--accent)}
+  .b-rev{background:transparent; color:var(--muted); border:1px solid var(--line)}
+  .hidden{display:none}
+
+  /* patents/honors/service */
+  .list2{list-style:none; padding:0; margin:0}
+  .list2 li{display:flex; justify-content:space-between; gap:16px; padding:9px 0; border-bottom:1px dashed var(--line); font-size:15px}
+  .list2 li > span:first-child{flex:1; min-width:0}
+  .list2 li > span:last-child{flex:none; color:var(--muted); white-space:nowrap; font-variant-numeric:tabular-nums; font-size:14px}
+  .pat .en{display:block; font-size:13.5px; color:var(--muted)}
+  .tag{font:600 11.5px var(--sans); padding:2px 8px; border-radius:6px; background:var(--accent-soft); color:var(--accent); margin-left:6px}
+  .tag.tpub{background:transparent; border:1px solid var(--line); color:var(--muted)}
+  details{margin-top:12px}
+  summary{cursor:pointer; color:var(--accent); font-size:14.5px; font-weight:500}
+
+  .proj{background:var(--card); border:1px solid var(--line); border-radius:12px; padding:16px 20px; margin-bottom:12px}
+  .proj .k{font:600 15.5px/1.45 var(--serif)}
+  .proj .f{font:600 12px var(--sans); color:var(--accent); text-transform:uppercase; letter-spacing:.06em}
+  .proj p{margin:6px 0 0; font-size:14.5px; color:var(--muted)}
+
+  .reviewer{display:flex; flex-wrap:wrap; gap:7px; margin-top:12px}
+  .reviewer span{font-size:13px; background:var(--card); border:1px solid var(--line); border-radius:6px; padding:3px 9px; color:var(--muted)}
+
+  footer{border-top:1px solid var(--line); padding:26px 24px; text-align:center; color:var(--muted); font-size:13.5px}
+
+  @media (max-width:900px){
+    .wrap{grid-template-columns:minmax(0,1fr); gap:36px; padding-top:28px}
+    aside{position:static; display:grid; grid-template-columns:130px minmax(0,1fr); gap:0 22px; align-items:start}
+    .avatar{width:130px; height:150px; grid-row:span 3}
+    aside h1{margin-top:0}
+    .links,.stats{grid-column:1/-1}
+    .interests{grid-template-columns:1fr}
+    .nav ul{gap:16px}
+    .brand span{display:none}
+  }
+  @media (max-width:520px){
+    .news li{grid-template-columns:1fr; gap:2px}
+    .list2 li{flex-direction:column; gap:2px}
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="#about">Zhenwei Zhang<span>张振威</span></a>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#news">News</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#patents">Patents</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#honors">Honors</a></li>
+      <li><a href="#service">Service</a></li>
+    </ul>
+  </div>
+  <div class="stripe" title="Warming stripes"></div>
+</header>
+
+<div class="wrap">
+  <aside>
+    <img class="avatar" src="profile.jpg" alt="Zhenwei Zhang">
+    <div>
+      <h1>Zhenwei Zhang</h1>
+      <div class="cn">张振威</div>
+    </div>
+    <p class="role"><b>Ph.D. Candidate</b><br>State Key Laboratory of Internet of Things for Smart City, University of Macau<br><span style="font-size:13.5px">Visiting Scholar · Newcastle University, UK</span></p>
+    <ul class="links">
+      <li><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>N21, Avenida da Universidade, Taipa, Macau</li>
+      <li><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><a href="mailto:zw.zhang@connect.um.edu.mo">zw.zhang@connect.um.edu.mo</a></li>
+      <li><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9 8v8M13 8h1.5a4 4 0 0 1 0 8H13z"/></svg><a href="https://orcid.org/0000-0001-8834-6396">ORCID</a></li>
+      <li><svg viewBox="0 0 24 24"><path d="M12 3 2 9l10 6 10-6z"/><path d="M6 11.5V16c3 2.5 9 2.5 12 0v-4.5"/></svg><a href="https://scholar.google.com/citations?user=ymsDDAUAAAAJ&amp;hl=en">Google Scholar</a></li>
+      <li><svg viewBox="0 0 24 24"><path d="M9 19c-4 1.5-4-2-6-2.5M15 21v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.7 4.7 0 0 0-1.3-3.2 4.3 4.3 0 0 0-.1-3.2s-1-.3-3.4 1.3a11.6 11.6 0 0 0-6.2 0C6.6 2.8 5.6 3.1 5.6 3.1a4.3 4.3 0 0 0-.1 3.2A4.7 4.7 0 0 0 4.2 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg><a href="https://github.com/zzwum">GitHub</a></li>
+      <!-- Fill in your own links below, then remove the comment markers -->
+      <!--
+      <li><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M9 16V8h3.5a2.3 2.3 0 0 1 0 4.6H9M12 12.6l3 3.4"/></svg><a href="https://www.researchgate.net/profile/YOUR_PROFILE">ResearchGate</a></li>
+      -->
+    </ul>
+    <div class="stats">
+      <div class="stat"><b>750+</b><span>Citations</span></div>
+      <div class="stat"><b>10</b><span>h-index</span></div>
+      <div class="stat"><b>2</b><span>ESI Top 1%</span></div>
+    </div>
+  </aside>
+
+  <main>
+    <section id="about">
+      <h2>About Me</h2>
+      <p class="lead">I am a Ph.D. candidate in Electrical and Computer Engineering at the <b>State Key Laboratory of Internet of Things for Smart City, University of Macau</b>, supervised by <b>Prof. Yonghua Song</b> (FREng, MAE, IEEE/IET/CSEE Fellow) and co-supervised by <b>Prof. Hongxun Hui</b>. I am currently a visiting scholar at <b>Newcastle University</b>, UK, working with <b>Prof. Vladimir Terzija</b> (IEEE Fellow, Humboldt Fellow).</p>
+      <p>My research sits at the intersection of <b>urban climate, buildings and power systems</b>. I study how urban heatwaves and microclimates interact with building cooling demand, and how distribution grids can be dispatched and planned to stay resilient as heat extremes intensify. Before joining UM, I received my M.Eng. in Electrical Engineering from Shandong University and my B.Eng. in Smart Grid Information Engineering from Qingdao University of Science and Technology, where I worked on the optimal dispatch of integrated electricity–gas–heat energy systems.</p>
+      <p class="cn-bio">张振威，澳门大学智慧城市物联网国家重点实验室博士研究生，导师为宋永华教授（英国皇家工程院院士、欧洲科学院院士），合作导师为惠红勋教授，现于英国纽卡斯尔大学访问交流（合作导师 Vladimir Terzija 教授）。研究方向为城市微气象—建筑能源—电力系统耦合与优化，聚焦高温热浪下的建筑空调负荷特性、配电系统气候自适应调度与规划，以及综合能源系统优化调度。以第一/第一学生作者在 <i>The Innovation Energy</i>、<i>IEEE Transactions on Smart Grid</i>、<i>IEEE Transactions on Industry Applications</i>、<i>Energy</i>、《中国电机工程学报》等期刊发表论文，其中 2 篇入选 ESI 高被引论文。</p>
+
+      <div class="interests">
+        <div class="int"><div class="k"><span class="dot" style="background:#de2d26"></span>Urban Microclimate × Building Energy</div><p>Bidirectional coupling between urban heat and air-conditioning load; breaking the heatwave–energy vicious cycle.</p></div>
+        <div class="int"><div class="k"><span class="dot" style="background:#fc9272"></span>Climate-Adaptive Distribution Systems</div><p>Dispatch and long-horizon expansion planning under spatiotemporally heterogeneous heatwaves.</p></div>
+        <div class="int"><div class="k"><span class="dot" style="background:#2171b5"></span>Demand-Side Flexibility</div><p>Response capacity allocation of air conditioners and building clusters for peak-valley regulation.</p></div>
+        <div class="int"><div class="k"><span class="dot" style="background:#08306b"></span>Integrated Energy Systems</div><p>Distributed, chance-constrained and multi-timescale optimal dispatch of electricity–gas–heat systems.</p></div>
+      </div>
+    </section>
+
+    <section id="news">
+      <h2>News</h2>
+      <ul class="news">
+        <li><time>2026</time><span>Awarded the <b>Guangdong–Hong Kong–Macao Greater Bay Area (UM) Taihu Scholarship</b>.</span></li>
+        <li><time>2026.07</time><span>Started my visit to <b>Newcastle University</b>, UK, as a visiting scholar with Prof. Vladimir Terzija.</span></li>
+        <li><time>2026</time><span>Serving as Special Student Forum Chair of the 11th Asia Conference on Power and Electrical Engineering (ACPEE).</span></li>
+        <li><time>2025</time><span>Our paper on heatwave-aware distribution system planning received the <b>Best Paper Award</b> at IEEE SCEMS 2025, Pusan, Korea.</span></li>
+        <li><time>2025</time><span>Our paper on mitigating the vicious cycle between urban heatwaves and building energy systems in the Greater Bay Area was published in <i>The Innovation Energy</i> (Cell Press).</span></li>
+        <li><time>2025</time><span>Our <i>IEEE Transactions on Smart Grid</i> paper on microclimate-interactive air-conditioner response capacity was selected as an <b>ESI Highly Cited Paper</b>.</span></li>
+        <li><time>2024</time><span>Served as General Chair of the 7th IEEE Student Conference on Electric Machines and Systems (SCEMS 2024).</span></li>
+        <li><time>2024</time><span>Our perspective on urban microclimate, urban energy systems and urban buildings was published in <i>The Innovation Energy</i>.</span></li>
+      </ul>
+    </section>
+
+    <section id="experience">
+      <h2>Education &amp; Experience</h2>
+      <ul class="tl">
+        <li><div class="t"><b>Visiting Scholar, Newcastle University, UK</b><span class="when">Jul 2026 – Dec 2026</span></div><div class="sub">School of Engineering · Host: Prof. Vladimir Terzija</div></li>
+        <li><div class="t"><b>Ph.D., Electrical and Computer Engineering, University of Macau</b><span class="when">Jan 2023 – Dec 2026</span></div><div class="sub">Supervisor: Prof. Yonghua Song · Co-supervisor: Prof. Hongxun Hui</div></li>
+        <li><div class="t"><b>Research Assistant, Zhuhai UM Science &amp; Technology Research Institute</b><span class="when">Sep 2022 – Dec 2022</span></div><div class="sub">Smart City Research Center · Supervisor: Prof. Hongxun Hui</div></li>
+        <li><div class="t"><b>M.Eng., Electrical Engineering, Shandong University</b><span class="when">Sep 2019 – Jul 2022</span></div><div class="sub">Supervisor: Prof. Chengfu Wang · GPA ranking 6/143 (top 4.2%)</div></li>
+        <li><div class="t"><b>B.Eng., Smart Grid Information Engineering, Qingdao University of Science and Technology</b><span class="when">Sep 2015 – Jul 2019</span></div><div class="sub">GPA ranking 1/30</div></li>
+      </ul>
+    </section>
+
+    <section id="publications">
+      <h2>Publications</h2>
+      <div class="tabs" role="tablist">
+        <button class="on" data-f="all">All</button>
+        <button data-f="j">Journal</button>
+        <button data-f="r">Under Review</button>
+        <button data-f="c">Conference &amp; Magazine</button>
+        <button data-f="co">Co-authored</button>
+      </div>
+      <ol class="pubs">
+        <li class="pub" data-c="j"><div><div class="ti">Mitigating the vicious cycle between urban heatwaves and building energy system in Guangdong–Hong Kong–Macao Greater Bay Area</div><div class="au"><b>Zhenwei Zhang</b>, Hongxun Hui, Yonghua Song</div><div class="ve"><i>The Innovation Energy</i>, 2025, 2(2): 100080.</div><span class="badge b-cell">Cell Press</span></div></li>
+        <li class="pub" data-c="j"><div><div class="ti">Response capacity allocation of air conditioners for peak-valley regulation considering interaction with surrounding microclimate</div><div class="au"><b>Zhenwei Zhang</b>, Hongxun Hui, Yonghua Song</div><div class="ve"><i>IEEE Transactions on Smart Grid</i>, vol. 16, no. 2, pp. 1155–1167, 2025.</div><span class="badge b-esi">ESI Highly Cited · Top 1%</span></div></li>
+        <li class="pub" data-c="j"><div><div class="ti">Interdisciplinary collaborative perspectives: urban microclimate, urban energy systems, and urban building sectors</div><div class="au">Yonghua Song, <b>Zhenwei Zhang</b>, Hongxun Hui</div><div class="ve"><i>The Innovation Energy</i>, 2024, 1(4): 100053.</div><span class="badge b-cell">Cell Press</span><span class="badge b-rev">First-student author</span></div></li>
+        <li class="pub" data-c="j"><div><div class="ti">Microclimate-interactive energy management of building clusters: linking local meteorology effect with terminal operation efficiency</div><div class="au"><b>Zhenwei Zhang</b>, Hongxun Hui, Yonghua Song</div><div class="ve"><i>CSEE Journal of Power and Energy Systems</i>, 2025.</div></div></li>
+        <li class="pub" data-c="j"><div><div class="ti">Hierarchical energy efficiency optimization of urban building clusters under the “microclimate–energy consumption” vicious cycle</div><div class="au"><b>Zhenwei Zhang</b>, Hongxun Hui, Houpeng Hu, Yonghua Song</div><div class="ve"><i>Proceedings of the CSEE</i> (中国电机工程学报), 2025.</div></div></li>
+        <li class="pub" data-c="j"><div><div class="ti">Optimal dispatch for cross-regional integrated energy system with renewable energy uncertainties: a unified spatial-temporal cooperative framework</div><div class="au"><b>Zhenwei Zhang</b>, Chengfu Wang, Qiuwei Wu, Xiaoming Dong</div><div class="ve"><i>Energy</i>, 2024, 292: 130433.</div><span class="badge b-esi">ESI Highly Cited · Top 1%</span></div></li>
+        <li class="pub" data-c="j"><div><div class="ti">Distributed chance-constrained optimal dispatch for integrated energy system with electro-thermal couple and wind-storage coordination</div><div class="au"><b>Zhenwei Zhang</b>, Yan Wang, Chengfu Wang, et al.</div><div class="ve"><i>IEEE Transactions on Industry Applications</i>, vol. 61, no. 1, pp. 833–846, 2025.</div></div></li>
+        <li class="pub" data-c="j"><div><div class="ti">Multitime scale co-optimized dispatch for integrated electricity and natural gas system considering bidirectional interactions and renewable uncertainties</div><div class="au"><b>Zhenwei Zhang</b>, Chengfu Wang, Shuai Chen, et al.</div><div class="ve"><i>IEEE Transactions on Industry Applications</i>, vol. 58, no. 4, pp. 5317–5327, 2022.</div></div></li>
+        <li class="pub" data-c="j"><div><div class="ti">Day-ahead optimal dispatch for integrated energy system considering power-to-gas and dynamic pipeline networks</div><div class="au"><b>Zhenwei Zhang</b>, Chengfu Wang, Huacan Lv, et al.</div><div class="ve"><i>IEEE Transactions on Industry Applications</i>, vol. 57, no. 4, pp. 3317–3328, 2021.</div></div></li>
+
+        <li class="pub" data-c="r"><div><div class="ti">Localized climate-aware dispatch of distribution system: addressing heatwave spatial heterogeneity via source-network-load coordination</div><div class="au"><b>Zhenwei Zhang</b>, Jiahao Wu, Hongxun Hui, Liang Gao, Yonghua Song</div><div class="ve"><i>IEEE Transactions on Smart Grid</i></div><span class="badge b-rev">Under review</span></div></li>
+        <li class="pub" data-c="r"><div><div class="ti">Long-horizon climate-adaptive expansion planning for distribution system under spatiotemporally heterogeneous heatwaves</div><div class="au"><b>Zhenwei Zhang</b>, Sheng Wang, Hongxun Hui, Vladimir Terzija, Yonghua Song</div><div class="ve"><i>IEEE Transactions on Smart Grid</i></div><span class="badge b-rev">Under review</span></div></li>
+        <li class="pub" data-c="r"><div><div class="ti">Quantifying electricity demand for cooling under bidirectional feedback between buildings and microclimate</div><div class="au">Zhihua Chen, <b>Zhenwei Zhang</b>, Hongxun Hui</div><div class="ve"><i>IEEE Transactions on Smart Grid</i></div><span class="badge b-rev">Under revision</span></div></li>
+
+        <li class="pub" data-c="c"><div><div class="ti">Two-stage robust planning for urban distribution system with heatwave seasonal imbalance and progressive intensification</div><div class="au"><b>Zhenwei Zhang</b>, Hongxun Hui</div><div class="ve"><i>IEEE 8th Student Conference on Electric Machines and Systems (SCEMS)</i>, Pusan, Korea, 2025.</div><span class="badge b-award">Best Paper Award</span></div></li>
+        <li class="pub" data-c="c"><div><div class="ti">Interdisciplinary collaboration perspectives for smart city development: urban microclimates, energy systems, and building sectors</div><div class="au">Yonghua Song, <b>Zhenwei Zhang</b>, Hongxun Hui</div><div class="ve"><i>UMagazine</i>, Issue 31, pp. 47–50, 2025.</div></div></li>
+        <li class="pub" data-c="c"><div><div class="ti">Energy-saving potential assessment of building energy system considering climate impacts</div><div class="au"><b>Zhenwei Zhang</b>, Hongxun Hui</div><div class="ve"><i>IEEE Sustainable Power and Energy Conference (iSPEC)</i>, Chongqing, China, 2023.</div></div></li>
+        <li class="pub" data-c="c"><div><div class="ti">Multi-time scale co-optimization scheduling of integrated energy system for uncertainty balancing</div><div class="au"><b>Zhenwei Zhang</b>, Chengfu Wang, et al.</div><div class="ve"><i>IEEE/IAS Industrial and Commercial Power System Asia (I&amp;CPS Asia)</i>, Chengdu, China, 2021.</div></div></li>
+        <li class="pub" data-c="c"><div><div class="ti">Day-ahead optimal dispatch for integrated energy system considering power-to-gas and dynamic pipeline networks</div><div class="au"><b>Zhenwei Zhang</b>, Chengfu Wang, Ming Yang, Xi Chen, Huacan Lv</div><div class="ve"><i>IEEE Industry Applications Society Annual Meeting</i>, Detroit, MI, USA, 2020.</div></div></li>
+
+        <li class="pub" data-c="co"><div><div class="ti">Embedding P2P transaction into demand response exchange: a cooperative demand response management framework for IES</div><div class="au">K. Wang, C. Wang, W. Yao, <b>Z. Zhang</b></div><div class="ve"><i>Applied Energy</i>, 2024, 367: 123319.</div></div></li>
+        <li class="pub" data-c="co"><div><div class="ti">A tri-layer decision-making framework for IES considering the interaction of integrated demand response and multi-energy market clearing</div><div class="au">W. Yao, C. Wang, M. Yang, K. Wang, X. Dong, <b>Z. Zhang</b></div><div class="ve"><i>Applied Energy</i>, 2023, 342: 121196.</div></div></li>
+        <li class="pub" data-c="co"><div><div class="ti">Multi-time scale active and reactive power coordinated optimal dispatch in active distribution network considering multiple correlation of renewable energy sources</div><div class="au">S. Chen, C. Wang, <b>Z. Zhang</b></div><div class="ve"><i>IEEE Transactions on Industry Applications</i>, vol. 57, no. 6, pp. 5614–5625, 2021.</div></div></li>
+        <li class="pub" data-c="co"><div><div class="ti">Flexibility evaluation method of power system considering the impact of multi-energy coupling</div><div class="au">Y. Zhao, C. Wang, <b>Z. Zhang</b>, H. Lv</div><div class="ve"><i>IEEE Transactions on Industry Applications</i>, vol. 57, no. 6, pp. 5687–5697, 2021.</div></div></li>
+        <li class="pub" data-c="co"><div><div class="ti">Multi-timescale active distribution network optimal dispatching based on SMPC</div><div class="au">K. Wang, C. Wang, <b>Z. Zhang</b>, X. Wang</div><div class="ve"><i>IEEE Transactions on Industry Applications</i>, vol. 58, no. 2, pp. 1644–1653, 2022.</div></div></li>
+        <li class="pub" data-c="co"><div><div class="ti">Distributed optimization of integrated energy system based on cooperative game in uncertain environment</div><div class="au">W. Yao, C. Wang, Y. Zhao, <b>Z. Zhang</b></div><div class="ve"><i>Automation of Electric Power Systems</i> (电力系统自动化), 2022, 46(20): 43–53.</div></div></li>
+      </ol>
+    </section>
+
+    <section id="patents">
+      <h2>Patents</h2>
+      <ul class="list2 pat">
+        <li><span>考虑跨区互动的综合能源系统时空协调调度方法及系统<span class="tag">Granted</span><span class="en">Spatiotemporal coordinated dispatching of integrated energy systems considering cross-regional interactions</span></span><span>CN115222095B · 2026</span></li>
+        <li><span>建筑光伏光热系统动态建模与最优调度方法<span class="tag">Granted</span><span class="en">Dynamic modeling and optimal scheduling of building PV/T systems</span></span><span>CN121835138B · 2026</span></li>
+        <li><span>一种应对热浪季节性失衡与逐年强化的配电系统规划方法<span class="tag">Granted</span><span class="en">Distribution system planning for heatwave seasonal imbalance and year-on-year intensification</span></span><span>CN122414759B · 2026</span></li>
+        <li><span>电-气互联系统日前协同优化调度方法及系统<span class="tag">Granted</span><span class="en">Day-ahead coordinated optimization for electric–gas interconnected systems</span></span><span>CN114781694B · 2025</span></li>
+        <li><span>电-气互联系统多时间尺度联合优化调度方法及系统<span class="tag">Granted</span><span class="en">Multi-time-scale joint optimal dispatch for electric–gas interconnected systems</span></span><span>CN114781817B · 2025</span></li>
+        <li><span>一种综合能源系统日前优化调度方法及系统<span class="tag">Granted</span><span class="en">Day-ahead optimal dispatch method and system for integrated energy systems</span></span><span>CN112862158B · 2023</span></li>
+        <li><span>一种建筑能耗分析方法、装置和设备<span class="tag tpub">Published</span><span class="en">Method, apparatus and device for building energy consumption analysis</span></span><span>CN121902415A · 2026</span></li>
+        <li><span>建筑能源系统的功率信息处理方法及设备<span class="tag tpub">Published</span><span class="en">Power information processing for building energy systems</span></span><span>CN119514966A · 2024</span></li>
+      </ul>
+    </section>
+
+    <section id="projects">
+      <h2>Research Projects</h2>
+      <div class="proj"><div class="f">National Key R&amp;D Program of China</div><div class="k">Key technologies of multi-energy complementary new energy systems for cross-border interconnection</div><p>Physical modeling of cross-border power and gas networks; distributed decoupled solution for Xinjiang–Mongolia, Portugal–Spain and UAE–Oman scenarios; coordinated optimization module for the Altay–Khovd interconnected grid.</p></div>
+      <div class="proj"><div class="f">NSFC Young Scientists Fund</div><div class="k">Energy characteristics and response capacity allocation of high-density building air-conditioning loads under hot-humid microclimate in the Greater Bay Area</div><p>Unified thermal model of urban microclimate and AC loads; interaction analysis and multi-spatiotemporal joint optimization.</p></div>
+      <div class="proj"><div class="f">China Southern Power Grid · HK &amp; Macao S&amp;T Project</div><div class="k">IoT-based flexible resource assessment and interaction for urban power grids under dual-carbon targets</div><p>Aggregation model of urban flexible resources; game-based bi-level response capacity allocation; scenario tests on building flexible loads in Macao.</p></div>
+      <div class="proj"><div class="f">Shandong Major S&amp;T Innovation Project</div><div class="k">Key control equipment and demonstration for multi-energy complementary distributed integrated energy systems</div><p>Hierarchical control of multi-type energy storage in distributed energy systems.</p></div>
+      <div class="proj"><div class="f">Global Energy Interconnection Group</div><div class="k">Flexibility modeling and coordinated optimization of regional integrated energy supply systems</div><p>Distributed coordinated optimization for cross-border multi-region integrated energy systems.</p></div>
+    </section>
+
+    <section id="honors">
+      <h2>Honors &amp; Awards</h2>
+      <ul class="list2">
+        <li><span>Greater Bay Area (University of Macau) Taihu Scholarship</span><span>2026</span></li>
+        <li><span>Best Paper Award, IEEE 8th Student Conference on Electric Machines and Systems</span><span>2025</span></li>
+        <li><span>Outstanding Contribution as Workshop Chair, Int. Conf. on Electrical Power Systems and Intelligent Control</span><span>2025</span></li>
+        <li><span>First Prize Poster Award, Macao Conference on Smart City Technologies</span><span>2023</span></li>
+        <li><span>Outstanding Graduate of Shandong Province (Master)</span><span>2022</span></li>
+        <li><span>National Scholarship</span><span>2021</span></li>
+        <li><span>Outstanding Graduate of Shandong Province (Bachelor)</span><span>2019</span></li>
+        <li><span>National Encouragement Scholarship (three times)</span><span>2016–2019</span></li>
+      </ul>
+      <details>
+        <summary>Show more honors</summary>
+        <ul class="list2" style="margin-top:8px">
+          <li><span>Outstanding Social Practice Team of Shandong Province</span><span>2020</span></li>
+          <li><span>First Prize Scholarship · Outstanding Graduate · Outstanding Student Cadre, Shandong University</span><span>2020–2021</span></li>
+          <li><span>Excellent Graduation Thesis · Outstanding Graduate, Qingdao University of Science and Technology</span><span>2019</span></li>
+          <li><span>First Prize, Mobile Internet Innovation &amp; Entrepreneurship Competition, Shandong S&amp;T Festival</span><span>2018</span></li>
+          <li><span>National Undergraduate Electronic Design Contest — First Prize (Shandong)</span><span>2017</span></li>
+          <li><span>Top Ten Outstanding Student Leaders of the College, QUST</span><span>2017</span></li>
+          <li><span>“Siemens Cup” Intelligent Manufacturing Challenge — Third Prize (Shandong)</span><span>2016</span></li>
+          <li><span>National University Student Intelligent Car Race — Third Prize (Shandong)</span><span>2016</span></li>
+        </ul>
+      </details>
+    </section>
+
+    <section id="service">
+      <h2>Academic Service</h2>
+      <ul class="list2">
+        <li><span>Special Student Forum Chair, 11th Asia Conference on Power and Electrical Engineering</span><span>2026</span></li>
+        <li><span>Chair, IEEE Industry Applications Society Student Branch Chapter, University of Macau</span><span>2024–2026</span></li>
+        <li><span>Global Committee Chair, IEEE Student Conference on Electric Machines and Systems</span><span>2025</span></li>
+        <li><span>Workshop Chair, 2nd Int. Conf. on Electrical Power Systems and Intelligent Control</span><span>2025</span></li>
+        <li><span>Program Committee Member, 5th Energy Conversion and Economics Annual Forum</span><span>2025</span></li>
+        <li><span>General Chair, 7th IEEE Student Conference on Electric Machines and Systems</span><span>2024</span></li>
+      </ul>
+      <h3>Journal Reviewer</h3>
+      <div class="reviewer">
+        <span>IEEE Trans. Smart Grid</span><span>Applied Energy</span><span>Renewable &amp; Sustainable Energy Reviews</span><span>Energy</span><span>Renewable Energy</span><span>J. Cleaner Production</span><span>IJEPES</span><span>Sustainable Energy, Grids and Networks</span><span>J. Energy Storage</span><span>Electric Power Systems Research</span><span>Sustainable Energy Tech. &amp; Assessments</span><span>Sustainable Computing</span><span>Expert Systems with Applications</span><span>Scientific Reports</span><span>IET Smart Grid</span><span>Electrical Engineering</span><span>Global Energy Interconnection</span><span>Energy Reports</span><span>Discover Applied Sciences</span>
+      </div>
+    </section>
+  </main>
+</div>
+
+<footer>© 2026 Zhenwei Zhang · Last updated November 2026</footer>
+
+<script>
+  // publication filter
+  document.querySelectorAll('.tabs button').forEach(b=>b.addEventListener('click',()=>{
+    document.querySelectorAll('.tabs button').forEach(x=>x.classList.toggle('on',x===b));
+    const f=b.dataset.f;
+    document.querySelectorAll('.pub').forEach(p=>p.classList.toggle('hidden',f!=='all'&&p.dataset.c!==f));
+  }));
+  // active nav link on scroll
+  const links=[...document.querySelectorAll('.nav ul a')];
+  const io=new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){
+    links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id)); }}),{rootMargin:'-40% 0px -55% 0px'});
+  document.querySelectorAll('main section').forEach(s=>io.observe(s));
+</script>
+</body>
+</html>
