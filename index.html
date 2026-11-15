@@ -73,17 +73,10 @@
   .int .k{font:600 15.5px var(--serif); display:flex; gap:10px; align-items:center}
   .int .dot{width:10px; height:10px; border-radius:50%}
   .int p{margin:6px 0 0; font-size:14px; color:var(--muted); line-height:1.55}
-  .figrow{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:24px}
-  .fig{display:block; background:#fff; border:1px solid var(--line); border-radius:12px; overflow:hidden; cursor:zoom-in; text-decoration:none}
-  .fig:hover{text-decoration:none; box-shadow:0 8px 24px -12px rgba(0,0,0,.3)}
-  .fig img{display:block; width:100%; aspect-ratio:16/9; object-fit:contain; background:#fff}
-  .fig span{display:block; padding:9px 14px; font-size:13.5px; color:var(--muted); background:var(--card); border-top:1px solid var(--line)}
-  .dirs{list-style:none; padding:0; margin:0; display:grid; grid-template-columns:1fr 1fr; gap:14px 32px}
-  .dirs li{display:flex; gap:12px}
-  .dirs .dot{width:10px; height:10px; border-radius:50%; margin-top:8px; flex:none}
-  .dirs b{font:600 16px var(--serif)}
-  .dirs p{margin:2px 0 0; font-size:14.5px; color:var(--muted)}
-  @media (max-width:900px){ .figrow,.dirs{grid-template-columns:1fr} }
+  .int .arts{display:flex; gap:1px; margin:-16px -18px 14px; aspect-ratio:16/9; background:var(--line); border-bottom:1px solid var(--line)}
+  .int .ri{flex:1; min-width:0; background:#fff; cursor:zoom-in; display:flex; align-items:center; justify-content:center; padding:6px}
+  .int .ri img{display:block; max-width:100%; max-height:100%; object-fit:contain; transition:transform .35s ease}
+  .int .ri:hover img{transform:scale(1.03)}
   .int{overflow:hidden}
   .int .art{display:block; margin:-16px -18px 14px; aspect-ratio:2/1; border-bottom:1px solid var(--line); cursor:zoom-in; background:#fff; overflow:hidden}
   .int .art img{display:block; width:100%; height:100%; object-fit:cover; transition:transform .4s ease}
@@ -220,17 +213,13 @@
       <p>My research sits at the intersection of <b>urban climate, buildings and power systems</b>. I study how urban heatwaves and microclimates interact with building cooling demand, and how distribution grids can be dispatched and planned to stay resilient as heat extremes intensify. Before joining UM, I received my M.Eng. in Electrical Engineering from Shandong University and my B.Eng. in Smart Grid Information Engineering from Qingdao University of Science and Technology, where I worked on the optimal dispatch of integrated electricity–gas–heat energy systems.</p>
       <p class="cn-bio">张振威，澳门大学智慧城市物联网国家重点实验室博士研究生，导师为宋永华教授，合作导师为惠红勋教授，英国纽卡斯尔大学访问学者（合作导师 Vladimir Terzija 教授）。研究方向为城市微气象—建筑能源—电力系统耦合与优化，聚焦高温热浪下的建筑空调负荷特性、配电系统气候自适应调度与规划，以及综合能源系统优化调度。以第一/第一学生作者在 <i>The Innovation Energy</i>、<i>IEEE Transactions on Smart Grid</i>、<i>IEEE Transactions on Industry Applications</i>、<i>Energy</i>、《中国电机工程学报》等期刊发表论文，其中 2 篇入选 ESI 高被引论文。</p>
 
-      <div class="figrow">
-        <a class="fig" href="images/research-1-full.jpg" data-cap="The vicious cycle between urban microclimate and building energy systems"><img src="images/research-1-full.jpg" alt="Urban microclimate and building energy vicious cycle" loading="lazy"><span>Urban microclimate &times; building energy</span></a>
-        <a class="fig" href="images/research-2-full.jpg" data-cap="Climate impacts across the source, network and load of urban power systems"><img src="images/research-2-full.jpg" alt="Climate impacts on source, network and load" loading="lazy"><span>Climate impacts on urban power systems</span></a>
-      </div>
       <h3>Research Interests</h3>
-      <ul class="dirs">
-        <li><span class="dot" style="background:#de2d26"></span><div><b>Urban Climate&ndash;Energy Nexus</b><p>Interactions among urban climate, buildings and energy systems.</p></div></li>
-        <li><span class="dot" style="background:#fc9272"></span><div><b>Climate-Resilient Power Systems</b><p>Power system planning and operation under extreme heat and climate change.</p></div></li>
-        <li><span class="dot" style="background:#2171b5"></span><div><b>Demand-Side Flexibility</b><p>Flexible building loads and demand response for grid regulation.</p></div></li>
-        <li><span class="dot" style="background:#08306b"></span><div><b>Integrated Energy Systems</b><p>Coordinated optimization of multi-energy systems under uncertainty.</p></div></li>
-      </ul>
+      <div class="interests">
+        <div class="int"><div class="arts"><a class="ri" href="images/research-1-full.jpg" data-cap="The vicious cycle between urban microclimate and building energy systems"><img src="images/research-1-full.jpg" alt="The vicious cycle between urban microclimate and building energy systems" loading="lazy"></a></div><div class="k"><span class="dot" style="background:#de2d26"></span>Urban Climate&ndash;Energy Nexus</div><p>Interactions among urban climate, buildings and energy systems.</p></div>
+        <div class="int"><div class="arts"><a class="ri" href="images/research-2-full.jpg" data-cap="Climate impacts across the source, network and load of urban power systems"><img src="images/research-2-full.jpg" alt="Climate impacts across the source, network and load of urban power systems" loading="lazy"></a></div><div class="k"><span class="dot" style="background:#fc9272"></span>Climate-Resilient Power Systems</div><p>Power system planning and operation under extreme heat and climate change.</p></div>
+        <div class="int"><div class="arts two"><a class="ri" href="images/research-3-full.jpg" data-cap="Heat-flux interactions between building blocks, urban canopy and air conditioners"><img src="images/research-3-full.jpg" alt="Heat-flux interactions between building blocks, urban canopy and air conditioners" loading="lazy"></a><a class="ri" href="images/research-3b-full.jpg" data-cap="Two-stage cooperative allocation of air-conditioner response capacity"><img src="images/research-3b-full.jpg" alt="Two-stage cooperative allocation of air-conditioner response capacity" loading="lazy"></a></div><div class="k"><span class="dot" style="background:#2171b5"></span>Demand-Side Flexibility</div><p>Flexible building loads and demand response for grid regulation.</p></div>
+        <div class="int"><div class="arts"><a class="ri" href="images/research-4.jpg" data-cap="Source, network and load in an urban energy system"><img src="images/research-4.jpg" alt="Source, network and load in an urban energy system" loading="lazy"></a></div><div class="k"><span class="dot" style="background:#08306b"></span>Integrated Energy Systems</div><p>Coordinated optimization of multi-energy systems under uncertainty.</p></div>
+      </div>
     </section>
 
     <section id="news">
@@ -384,7 +373,7 @@
   document.querySelectorAll('main section').forEach(s=>io.observe(s));
   // figure lightbox
   const lbx=document.getElementById('lb');
-  document.querySelectorAll('.fig').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();
+  document.querySelectorAll('.int .ri').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();
     lbx.querySelector('img').src=a.getAttribute('href'); lbx.querySelector('figcaption').textContent=a.dataset.cap; lbx.classList.add('on');}));
   lbx.addEventListener('click',()=>lbx.classList.remove('on'));
   document.addEventListener('keydown',e=>{if(e.key==='Escape')lbx.classList.remove('on')});
